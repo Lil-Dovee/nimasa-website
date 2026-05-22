@@ -13,7 +13,7 @@ export default function PublicMapPage() {
   const [vessels, setVessels] = useState([]);
   const [error, setError] = useState(null);
   const [authed, setAuthed] = useState(false);
-
+  console.log("heree")
   useEffect(() => {
     setAuthed(isLoggedIn());
   }, []);
@@ -27,6 +27,7 @@ export default function PublicMapPage() {
           getActiveVesselCount(),
           getOtherVessels(NIGERIAN_WATERS_BBOX),
         ]);
+        console.log(countRes, vesselsRes, NIGERIAN_WATERS_BBOX)
         if (cancelled) return;
         setActiveCount(countRes.count);
         setVessels(vesselsRes || []);
